@@ -6,7 +6,7 @@ pipeline
     stages{
         stage('Build Maven'){
             steps{
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/RahulTiple31/devops-docker-k8s-12-06-2023.git']])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/RahulTiple31/devops-docker-k8s-12-06-2023.git']]])
                 sh 'mvn clean install'
             }
         }
